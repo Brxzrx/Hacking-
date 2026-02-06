@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -11,359 +12,365 @@
             box-sizing: border-box;
         }
 
+```
+    body {
+        background: #000;
+        color: #fff;
+        font-family: 'Courier New', monospace;
+        overflow-x: hidden;
+        padding: 20px;
+        line-height: 1.6;
+        position: relative;
+    }
+
+    .matrix-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .terminal {
+        max-width: 600px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        background: rgba(0, 0, 0, 0.85);
+        padding: 20px;
+        border: 1px solid #fff;
+        min-height: 400px;
+    }
+
+    .header {
+        font-size: 16px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 10px;
+    }
+
+    #output {
+        margin-bottom: 20px;
+        min-height: 200px;
+    }
+
+    .line {
+        margin: 5px 0;
+        font-size: 14px;
+        opacity: 0;
+        animation: fadeIn 0.2s forwards;
+    }
+
+    @keyframes fadeIn {
+        to { opacity: 1; }
+    }
+
+    .progress-container {
+        display: none;
+        margin: 15px 0;
+        padding: 10px 0;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 20px;
+        background: #222;
+        border: 1px solid #fff;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: #fff;
+        width: 0%;
+        transition: width 0.3s;
+    }
+
+    .progress-text {
+        font-size: 13px;
+        margin-top: 5px;
+        text-align: center;
+    }
+
+    .countdown-container {
+        display: none;
+        text-align: center;
+        margin: 30px 0;
+        padding: 20px;
+        border: 2px solid #fff;
+    }
+
+    .countdown-number {
+        font-size: 60px;
+        font-weight: bold;
+    }
+
+    .countdown-text {
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    .reveal {
+        display: none;
+        text-align: center;
+        padding: 40px 20px;
+        border: 2px solid #fff;
+        margin-top: 30px;
+        background: rgba(0, 0, 0, 0.9);
+    }
+
+    .reveal-emoji {
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
+
+    .reveal-title {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .reveal-text {
+        font-size: 16px;
+        margin: 10px 0;
+        line-height: 1.8;
+    }
+
+    .reveal-from {
+        font-size: 20px;
+        margin: 20px 0;
+        font-weight: bold;
+    }
+
+    @media (max-width: 480px) {
         body {
-            background: #000;
-            color: #fff;
-            font-family: 'Courier New', monospace;
-            overflow-x: hidden;
-            padding: 20px;
-            line-height: 1.6;
-            position: relative;
+            padding: 15px;
         }
-
-        .matrix-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
-
         .terminal {
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-            background: rgba(0, 0, 0, 0.85);
-            padding: 20px;
-            border: 1px solid #fff;
-            min-height: 400px;
+            padding: 15px;
         }
-
         .header {
-            font-size: 16px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #fff;
-            padding-bottom: 10px;
+            font-size: 14px;
         }
-
-        #output {
-            margin-bottom: 20px;
-            min-height: 200px;
-        }
-
         .line {
-            margin: 5px 0;
-            font-size: 14px;
-            opacity: 0;
-            animation: fadeIn 0.2s forwards;
+            font-size: 12px;
         }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        .progress-container {
-            display: none;
-            margin: 15px 0;
-            padding: 10px 0;
-            border-top: 1px solid #fff;
-            border-bottom: 1px solid #fff;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 20px;
-            background: #222;
-            border: 1px solid #fff;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: #fff;
-            width: 0%;
-            transition: width 0.3s;
-        }
-
-        .progress-text {
-            font-size: 13px;
-            margin-top: 5px;
-            text-align: center;
-        }
-
-        .countdown-container {
-            display: none;
-            text-align: center;
-            margin: 30px 0;
-            padding: 20px;
-            border: 2px solid #fff;
-        }
-
         .countdown-number {
-            font-size: 60px;
-            font-weight: bold;
+            font-size: 45px;
         }
-
-        .countdown-text {
-            margin-top: 10px;
+        .reveal-title {
+            font-size: 24px;
+        }
+        .reveal-text {
             font-size: 14px;
         }
+    }
+</style>
+```
 
-        .reveal {
-            display: none;
-            text-align: center;
-            padding: 40px 20px;
-            border: 2px solid #fff;
-            margin-top: 30px;
-            background: rgba(0, 0, 0, 0.9);
-        }
-
-        .reveal-emoji {
-            font-size: 50px;
-            margin-bottom: 20px;
-        }
-
-        .reveal-title {
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-
-        .reveal-text {
-            font-size: 16px;
-            margin: 10px 0;
-            line-height: 1.8;
-        }
-
-        .reveal-from {
-            font-size: 20px;
-            margin: 20px 0;
-            font-weight: bold;
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 15px;
-            }
-            .terminal {
-                padding: 15px;
-            }
-            .header {
-                font-size: 14px;
-            }
-            .line {
-                font-size: 12px;
-            }
-            .countdown-number {
-                font-size: 45px;
-            }
-            .reveal-title {
-                font-size: 24px;
-            }
-            .reveal-text {
-                font-size: 14px;
-            }
-        }
-    </style>
 </head>
 <body>
     <canvas class="matrix-bg" id="matrix"></canvas>
-    
-    <div class="terminal">
-        <div class="header">⚠️ تحذير: تم اكتشاف اختراق أمني</div>
-        <div id="output"></div>
-        <div class="progress-container" id="progress-container">
-            <div class="progress-bar">
-                <div class="progress-fill" id="progress-fill"></div>
-            </div>
-            <div class="progress-text" id="progress-text">جاري السرقة... 0%</div>
+
+```
+<div class="terminal">
+    <div class="header">⚠️ تحذير: تم اكتشاف اختراق أمني</div>
+    <div id="output"></div>
+    <div class="progress-container" id="progress-container">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
         </div>
-        <div class="countdown-container" id="countdown-container">
-            <div class="countdown-number" id="countdown-number"></div>
-            <div class="countdown-text">ثانية حتى حذف كل البيانات</div>
-        </div>
-        <div class="reveal" id="reveal">
-            <div class="reveal-emoji">😂</div>
-            <div class="reveal-title">مقلب!</div>
-            <div class="reveal-text">ههههه شفت نفسك كيف؟</div>
-            <div class="reveal-text">انصدمت صح؟ 🤣</div>
-            <div class="reveal-from">من: صديقك</div>
-            <div class="reveal-text">جهازك سليم 100%</div>
-            <div class="reveal-text">بس حبيت أشوف ردة فعلك 😈</div>
-        </div>
+        <div class="progress-text" id="progress-text">جاري السرقة... 0%</div>
     </div>
+    <div class="countdown-container" id="countdown-container">
+        <div class="countdown-number" id="countdown-number"></div>
+        <div class="countdown-text">ثانية حتى حذف كل البيانات</div>
+    </div>
+    <div class="reveal" id="reveal">
+        <div class="reveal-emoji">😂</div>
+        <div class="reveal-title">مقلب!</div>
+        <div class="reveal-text">ههههه شفت نفسك كيف؟</div>
+        <div class="reveal-text">انصدمت صح؟ 🤣</div>
+        <div class="reveal-from">من: صديقك</div>
+        <div class="reveal-text">جهازك سليم 100%</div>
+        <div class="reveal-text">بس حبيت أشوف ردة فعلك 😈</div>
+    </div>
+</div>
 
-    <script>
-        // Matrix rain effect
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
+<script>
+    // Matrix rain effect
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
 
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const katakana = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+    const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const nums = '0123456789';
+    const alphabet = katakana + latin + nums;
+
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+
+    const rainDrops = [];
+
+    for (let x = 0; x < columns; x++) {
+        rainDrops[x] = 1;
+    }
+
+    const draw = () => {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#0F0';
+        ctx.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < rainDrops.length; i++) {
+            const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+            ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+            if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                rainDrops[i] = 0;
+            }
+            rainDrops[i]++;
+        }
+    };
+
+    setInterval(draw, 30);
+
+    window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+    });
 
-        const katakana = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
-        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const nums = '0123456789';
-        const alphabet = katakana + latin + nums;
+    // Terminal messages
+    const output = document.getElementById('output');
+    const progressContainer = document.getElementById('progress-container');
+    const progressFill = document.getElementById('progress-fill');
+    const progressText = document.getElementById('progress-text');
+    const countdownContainer = document.getElementById('countdown-container');
+    const countdownNumber = document.getElementById('countdown-number');
+    const reveal = document.getElementById('reveal');
 
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
+    const MAX_LINES = 10; // Maximum number of lines to keep visible
 
-        const rainDrops = [];
+    const messages = [
+        { text: '> جاري الاتصال بالسيرفر...', delay: 700 },
+        { text: '> تم الاتصال بنجاح', delay: 600 },
+        { text: '> IP المستهدف: 192.168.1.1', delay: 500 },
+        { text: '', delay: 300 },
+        { text: '> فحص الثغرات الأمنية...', delay: 700 },
+        { text: '> تم اكتشاف 47 ثغرة حرجة', delay: 600 },
+        { text: '> تجاوز جدار الحماية...', delay: 700 },
+        { text: '> تم الوصول الكامل للنظام', delay: 500 },
+        { text: '', delay: 300 },
+        { text: '> جاري فحص الملفات...', delay: 600 },
+        { text: '> تم العثور على:', delay: 400 },
+        { text: '  - الصور: 1,847 ملف', delay: 400 },
+        { text: '  - جهات الاتصال: 243 جهة', delay: 400 },
+        { text: '  - رسائل واتساب: 4,156 محادثة', delay: 400 },
+        { text: '  - كلمات المرور: 43 حساب', delay: 400 },
+        { text: '  - حسابات التواصل: Instagram, Snapchat, TikTok', delay: 500 },
+        { text: '', delay: 300 },
+        { text: '> بدء عملية السرقة...', delay: 700 },
+        { text: 'PROGRESS', delay: 100 },
+        { text: '', delay: 300 },
+        { text: '> تفعيل أدوات المراقبة...', delay: 600 },
+        { text: '> الكاميرا: نشطة', delay: 500 },
+        { text: '> الميكروفون: نشط', delay: 500 },
+        { text: '> تتبع الموقع: نشط', delay: 500 },
+        { text: '', delay: 300 },
+        { text: '> رفع البيانات للسيرفر...', delay: 700 },
+        { text: '> تم رفع: 3.8 GB', delay: 600 },
+        { text: '> السيرفر: dark-web.onion', delay: 600 },
+        { text: '', delay: 400 },
+        { text: '⚠️ تحذير: جميع بياناتك مسروقة', delay: 800 },
+        { text: '⚠️ تحذير: جهازك تحت المراقبة', delay: 800 },
+        { text: '⚠️ تحذير: سيتم حذف جميع الملفات', delay: 800 },
+        { text: '', delay: 500 },
+        { text: 'COUNTDOWN', delay: 100 }
+    ];
 
-        for (let x = 0; x < columns; x++) {
-            rainDrops[x] = 1;
-        }
+    let currentIndex = 0;
+    let progress = 0;
 
-        const draw = () => {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+    function typeMessage() {
+        if (currentIndex >= messages.length) return;
 
-            ctx.fillStyle = '#0F0';
-            ctx.font = fontSize + 'px monospace';
+        const msg = messages[currentIndex];
 
-            for (let i = 0; i < rainDrops.length; i++) {
-                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+        if (msg.text === 'PROGRESS') {
+            showProgress();
+        } else if (msg.text === 'COUNTDOWN') {
+            startCountdown();
+        } else {
+            const line = document.createElement('div');
+            line.className = 'line';
+            line.textContent = msg.text;
+            output.appendChild(line);
 
-                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    rainDrops[i] = 0;
-                }
-                rainDrops[i]++;
+            // Keep only last MAX_LINES lines
+            const lines = output.querySelectorAll('.line');
+            if (lines.length > MAX_LINES) {
+                lines[0].remove();
             }
-        };
+        }
 
-        setInterval(draw, 30);
+        currentIndex++;
+        setTimeout(typeMessage, msg.delay);
+    }
 
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
+    function showProgress() {
+        progressContainer.style.display = 'block';
 
-        // Terminal messages
-        const output = document.getElementById('output');
-        const progressContainer = document.getElementById('progress-container');
-        const progressFill = document.getElementById('progress-fill');
-        const progressText = document.getElementById('progress-text');
-        const countdownContainer = document.getElementById('countdown-container');
-        const countdownNumber = document.getElementById('countdown-number');
-        const reveal = document.getElementById('reveal');
-
-        const MAX_LINES = 10; // Maximum number of lines to keep visible
-
-        const messages = [
-            { text: '> جاري الاتصال بالسيرفر...', delay: 700 },
-            { text: '> تم الاتصال بنجاح', delay: 600 },
-            { text: '> IP المستهدف: 192.168.1.1', delay: 500 },
-            { text: '', delay: 300 },
-            { text: '> فحص الثغرات الأمنية...', delay: 700 },
-            { text: '> تم اكتشاف 47 ثغرة حرجة', delay: 600 },
-            { text: '> تجاوز جدار الحماية...', delay: 700 },
-            { text: '> تم الوصول الكامل للنظام', delay: 500 },
-            { text: '', delay: 300 },
-            { text: '> جاري فحص الملفات...', delay: 600 },
-            { text: '> تم العثور على:', delay: 400 },
-            { text: '  - الصور: 1,847 ملف', delay: 400 },
-            { text: '  - جهات الاتصال: 243 جهة', delay: 400 },
-            { text: '  - رسائل واتساب: 4,156 محادثة', delay: 400 },
-            { text: '  - كلمات المرور: 43 حساب', delay: 400 },
-            { text: '  - حسابات التواصل: Instagram, Snapchat, TikTok', delay: 500 },
-            { text: '', delay: 300 },
-            { text: '> بدء عملية السرقة...', delay: 700 },
-            { text: 'PROGRESS', delay: 100 },
-            { text: '', delay: 300 },
-            { text: '> تفعيل أدوات المراقبة...', delay: 600 },
-            { text: '> الكاميرا: نشطة', delay: 500 },
-            { text: '> الميكروفون: نشط', delay: 500 },
-            { text: '> تتبع الموقع: نشط', delay: 500 },
-            { text: '', delay: 300 },
-            { text: '> رفع البيانات للسيرفر...', delay: 700 },
-            { text: '> تم رفع: 3.8 GB', delay: 600 },
-            { text: '> السيرفر: dark-web.onion', delay: 600 },
-            { text: '', delay: 400 },
-            { text: '⚠️ تحذير: جميع بياناتك مسروقة', delay: 800 },
-            { text: '⚠️ تحذير: جهازك تحت المراقبة', delay: 800 },
-            { text: '⚠️ تحذير: سيتم حذف جميع الملفات', delay: 800 },
-            { text: '', delay: 500 },
-            { text: 'COUNTDOWN', delay: 100 }
-        ];
-
-        let currentIndex = 0;
-        let progress = 0;
-
-        function typeMessage() {
-            if (currentIndex >= messages.length) return;
-
-            const msg = messages[currentIndex];
-
-            if (msg.text === 'PROGRESS') {
-                showProgress();
-            } else if (msg.text === 'COUNTDOWN') {
-                startCountdown();
-            } else {
-                const line = document.createElement('div');
-                line.className = 'line';
-                line.textContent = msg.text;
-                output.appendChild(line);
-
-                // Keep only last MAX_LINES lines
-                const lines = output.querySelectorAll('.line');
-                if (lines.length > MAX_LINES) {
-                    lines[0].remove();
-                }
+        const interval = setInterval(() => {
+            progress += Math.random() * 10 + 5;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(interval);
+                setTimeout(() => {
+                    progressContainer.style.display = 'none';
+                    typeMessage();
+                }, 800);
             }
+            progressFill.style.width = progress + '%';
+            progressText.textContent = `جاري السرقة... ${Math.floor(progress)}%`;
+        }, 200);
+    }
 
-            currentIndex++;
-            setTimeout(typeMessage, msg.delay);
-        }
+    function startCountdown() {
+        // Clear output to make countdown prominent
+        output.innerHTML = '';
+        countdownContainer.style.display = 'block';
+        let count = 5;
 
-        function showProgress() {
-            progressContainer.style.display = 'block';
+        const interval = setInterval(() => {
+            countdownNumber.textContent = count;
+            count--;
 
-            const interval = setInterval(() => {
-                progress += Math.random() * 10 + 5;
-                if (progress >= 100) {
-                    progress = 100;
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        progressContainer.style.display = 'none';
-                        typeMessage();
-                    }, 800);
-                }
-                progressFill.style.width = progress + '%';
-                progressText.textContent = `جاري السرقة... ${Math.floor(progress)}%`;
-            }, 200);
-        }
+            if (count < 0) {
+                clearInterval(interval);
+                showReveal();
+            }
+        }, 1000);
+    }
 
-        function startCountdown() {
-            // Clear output to make countdown prominent
-            output.innerHTML = '';
-            countdownContainer.style.display = 'block';
-            let count = 5;
+    function showReveal() {
+        countdownContainer.style.display = 'none';
+        output.innerHTML = '';
+        document.querySelector('.header').style.display = 'none';
+        reveal.style.display = 'block';
+    }
 
-            const interval = setInterval(() => {
-                countdownNumber.textContent = count;
-                count--;
+    // Start
+    setTimeout(typeMessage, 1000);
+</script>
+```
 
-                if (count < 0) {
-                    clearInterval(interval);
-                    showReveal();
-                }
-            }, 1000);
-        }
-
-        function showReveal() {
-            countdownContainer.style.display = 'none';
-            output.innerHTML = '';
-            document.querySelector('.header').style.display = 'none';
-            reveal.style.display = 'block';
-        }
-
-        // Start
-        setTimeout(typeMessage, 1000);
-    </script>
 </body>
 </html>
