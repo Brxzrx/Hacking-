@@ -14,8 +14,8 @@
 
 ```
     body {
-        background: #000;
-        color: #fff;
+        background: #000 !important;
+        color: #fff !important;
         font-family: 'Courier New', monospace;
         overflow-x: hidden;
         padding: 20px;
@@ -38,17 +38,18 @@
         margin: 0 auto;
         position: relative;
         z-index: 2;
-        background: rgba(0, 0, 0, 0.85);
+        background: rgba(0, 0, 0, 0.85) !important;
         padding: 20px;
-        border: 1px solid #fff;
+        border: 1px solid #fff !important;
         min-height: 400px;
     }
 
     .header {
         font-size: 16px;
         margin-bottom: 20px;
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid #fff !important;
         padding-bottom: 10px;
+        color: #fff !important;
     }
 
     #output {
@@ -61,6 +62,7 @@
         font-size: 14px;
         opacity: 0;
         animation: fadeIn 0.2s forwards;
+        color: #fff !important;
     }
 
     @keyframes fadeIn {
@@ -71,22 +73,22 @@
         display: none;
         margin: 15px 0;
         padding: 10px 0;
-        border-top: 1px solid #fff;
-        border-bottom: 1px solid #fff;
+        border-top: 1px solid #fff !important;
+        border-bottom: 1px solid #fff !important;
     }
 
     .progress-bar {
         width: 100%;
         height: 20px;
-        background: #222;
-        border: 1px solid #fff;
+        background: #222 !important;
+        border: 1px solid #fff !important;
         position: relative;
         overflow: hidden;
     }
 
     .progress-fill {
         height: 100%;
-        background: #fff;
+        background: #fff !important;
         width: 0%;
         transition: width 0.3s;
     }
@@ -95,6 +97,7 @@
         font-size: 13px;
         margin-top: 5px;
         text-align: center;
+        color: #fff !important;
     }
 
     .countdown-container {
@@ -102,26 +105,28 @@
         text-align: center;
         margin: 30px 0;
         padding: 20px;
-        border: 2px solid #fff;
+        border: 2px solid #fff !important;
     }
 
     .countdown-number {
         font-size: 60px;
         font-weight: bold;
+        color: #fff !important;
     }
 
     .countdown-text {
         margin-top: 10px;
         font-size: 14px;
+        color: #fff !important;
     }
 
     .reveal {
         display: none;
         text-align: center;
         padding: 40px 20px;
-        border: 2px solid #fff;
+        border: 2px solid #fff !important;
         margin-top: 30px;
-        background: rgba(0, 0, 0, 0.9);
+        background: rgba(0, 0, 0, 0.9) !important;
     }
 
     .reveal-emoji {
@@ -132,18 +137,21 @@
     .reveal-title {
         font-size: 28px;
         margin-bottom: 15px;
+        color: #fff !important;
     }
 
     .reveal-text {
         font-size: 16px;
         margin: 10px 0;
         line-height: 1.8;
+        color: #fff !important;
     }
 
     .reveal-from {
         font-size: 20px;
         margin: 20px 0;
         font-weight: bold;
+        color: #fff !important;
     }
 
     @media (max-width: 480px) {
@@ -173,31 +181,31 @@
 ```
 
 </head>
-<body>
+<body style="background: #000 !important; color: #fff !important;">
     <canvas class="matrix-bg" id="matrix"></canvas>
 
 ```
-<div class="terminal">
-    <div class="header">⚠️ تحذير: تم اكتشاف اختراق أمني</div>
+<div class="terminal" style="background: rgba(0, 0, 0, 0.85) !important; border: 1px solid #fff !important;">
+    <div class="header" style="color: #fff !important; border-bottom: 1px solid #fff !important;">⚠️ تحذير: تم اكتشاف اختراق أمني</div>
     <div id="output"></div>
-    <div class="progress-container" id="progress-container">
-        <div class="progress-bar">
-            <div class="progress-fill" id="progress-fill"></div>
+    <div class="progress-container" id="progress-container" style="border-top: 1px solid #fff !important; border-bottom: 1px solid #fff !important;">
+        <div class="progress-bar" style="background: #222 !important; border: 1px solid #fff !important;">
+            <div class="progress-fill" id="progress-fill" style="background: #fff !important;"></div>
         </div>
-        <div class="progress-text" id="progress-text">جاري السرقة... 0%</div>
+        <div class="progress-text" id="progress-text" style="color: #fff !important;">جاري السرقة... 0%</div>
     </div>
-    <div class="countdown-container" id="countdown-container">
-        <div class="countdown-number" id="countdown-number"></div>
-        <div class="countdown-text">ثانية حتى حذف كل البيانات</div>
+    <div class="countdown-container" id="countdown-container" style="border: 2px solid #fff !important;">
+        <div class="countdown-number" id="countdown-number" style="color: #fff !important;"></div>
+        <div class="countdown-text" style="color: #fff !important;">ثانية حتى حذف كل البيانات</div>
     </div>
-    <div class="reveal" id="reveal">
+    <div class="reveal" id="reveal" style="background: rgba(0, 0, 0, 0.9) !important; border: 2px solid #fff !important;">
         <div class="reveal-emoji">😂</div>
-        <div class="reveal-title">مقلب!</div>
-        <div class="reveal-text">ههههه شفت نفسك كيف؟</div>
-        <div class="reveal-text">انصدمت صح؟ 🤣</div>
-        <div class="reveal-from">من: صديقك</div>
-        <div class="reveal-text">جهازك سليم 100%</div>
-        <div class="reveal-text">بس حبيت أشوف ردة فعلك 😈</div>
+        <div class="reveal-title" style="color: #fff !important;">مقلب!</div>
+        <div class="reveal-text" style="color: #fff !important;">ههههه شفت نفسك كيف؟</div>
+        <div class="reveal-text" style="color: #fff !important;">انصدمت صح؟ 🤣</div>
+        <div class="reveal-from" style="color: #fff !important;">من: صديقك</div>
+        <div class="reveal-text" style="color: #fff !important;">جهازك سليم 100%</div>
+        <div class="reveal-text" style="color: #fff !important;">بس حبيت أشوف ردة فعلك 😈</div>
     </div>
 </div>
 
@@ -257,7 +265,7 @@
     const countdownNumber = document.getElementById('countdown-number');
     const reveal = document.getElementById('reveal');
 
-    const MAX_LINES = 10; // Maximum number of lines to keep visible
+    const MAX_LINES = 10;
 
     const messages = [
         { text: '> جاري الاتصال بالسيرفر...', delay: 700 },
@@ -311,10 +319,10 @@
         } else {
             const line = document.createElement('div');
             line.className = 'line';
+            line.style.color = '#fff';
             line.textContent = msg.text;
             output.appendChild(line);
 
-            // Keep only last MAX_LINES lines
             const lines = output.querySelectorAll('.line');
             if (lines.length > MAX_LINES) {
                 lines[0].remove();
@@ -344,7 +352,6 @@
     }
 
     function startCountdown() {
-        // Clear output to make countdown prominent
         output.innerHTML = '';
         countdownContainer.style.display = 'block';
         let count = 5;
@@ -367,7 +374,6 @@
         reveal.style.display = 'block';
     }
 
-    // Start
     setTimeout(typeMessage, 1000);
 </script>
 ```
